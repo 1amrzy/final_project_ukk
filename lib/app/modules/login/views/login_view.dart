@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:peminjam_perpustakaan_kelas_b/app/modules/register/controllers/register_controller.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/routes/app_pages.dart';
 
 import '../controllers/login_controller.dart';
@@ -105,6 +106,17 @@ class LoginView extends GetView<LoginController> {
                           ),
                         )
                       ),
+                    ),
+                    SizedBox(height: 30),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        textStyle: TextStyle(
+                            fontSize: 12)
+                      ),
+                        onPressed: () => Get.toNamed(Routes.REGISTER),
+                        child: Text("Don't have account? Sign up",style: TextStyle(
+                        fontFamily: 'Poppins',fontWeight: FontWeight.bold,color: Colors.black45)
+                        ),
                     ),
                   ],
                 ))

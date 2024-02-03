@@ -10,74 +10,84 @@ class RegisterView extends GetView<RegisterController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('RegisterView'),
-        centerTitle: true,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Image(
+              image: AssetImage('assets/images/font_libryverse.png'),width: 120.0,),
+            Text("Help",
+              style: TextStyle(
+                  color: Colors.red,fontSize: 16.0,fontFamily: 'Poopins',fontWeight: FontWeight.bold),)
+          ],
+        ),
+
       ),
-      body: Center(
-          child: Form(
-            key: controller.formkey,
-            child: Column(
-              children: [
-                TextFormField(
-                  controller: controller.namaController,
-                  decoration: InputDecoration(hintText: "Masukkan Nama"),
-                  validator: (value){
-                    if (value!.isEmpty){
-                      return "nama tidak boleh kosong";
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  controller: controller.usernameController,
-                  decoration: InputDecoration(hintText: "Masukkan Username"),
-                  validator: (value){
-                    if (value!.isEmpty){
-                      return "username tidak boleh kosong";
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  controller: controller.telpController,
-                  decoration: InputDecoration(hintText: "Masukkan Nomer Telepon"),
-                  validator: (value){
-                    if (value!.isEmpty){
-                      return "nomer telepon tidak boleh kosong";
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  controller: controller.alamatController,
-                  decoration: InputDecoration(hintText: "Masukkan Alamat"),
-                  validator: (value){
-                    if (value!.isEmpty){
-                      return "alamat tidak boleh kosong";
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  controller: controller.passwordcontroller,
-                  decoration: InputDecoration(hintText: "Masukkan Password"),
-                  validator: (value){
-                    if (value!.isEmpty){
-                      return "Password tidak boleh kosong";
-                    }
-                    return null;
-                  },
-                ),
-                Obx(() => controller.loading.value?
-                CircularProgressIndicator():
-                ElevatedButton(onPressed: (){
-                  controller.register();
-                }, child: Text("Register"))
-                )
-              ],
-            ),
-          )
-      )
+        body: Center(
+          child: Container(
+              child:
+              Form(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        child: Padding(
+                          padding:
+                          EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                          child: TextField(
+                            //style: ,
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Color(0xFFB6B3B3).withOpacity(0.4),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0),
+                                  borderRadius: BorderRadius.circular(15.15),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                    BorderSide(color: Colors.red, width: 2.0),
+                                    borderRadius: BorderRadius.circular(15.15)),
+                                hintText: 'Email',
+                                hintStyle: TextStyle(fontFamily: 'Poppins', color: Colors.deepOrange)
+                            ),
+                          ),
+                        ),
+                      ),
+                      FractionallySizedBox(
+                        widthFactor: 0.7,
+                        child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                            child: SizedBox(
+                              width: double.infinity ,height: 40.40,
+                              child: Obx(() => controller.loading.value?
+                              CircularProgressIndicator():
+                              ElevatedButton(onPressed: (){
+                                controller.register();
+                              }, child: Text("Next",style: TextStyle(
+                                  fontFamily: 'Poppins',fontSize: 14,fontWeight: FontWeight.bold,color: Colors.white),),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color(0xFFFF0000),
+                                ),)
+                              ),
+                            )
+                        ),
+                      ),
+                      SizedBox(height: 30),
+                      TextButton(
+                        style: TextButton.styleFrom(
+                            textStyle: TextStyle(
+                                fontSize: 12)
+                        ),
+                        onPressed: (){},
+                        child: Text("Already have account? Log in",style: TextStyle(
+                            fontFamily: 'Poppins',fontWeight: FontWeight.bold,color: Colors.black45)
+                        ),
+                      ),
+                    ],
+                  ))
+          ),
+        )
+
     );
   }
 }

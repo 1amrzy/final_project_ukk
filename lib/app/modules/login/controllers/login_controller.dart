@@ -73,5 +73,6 @@ class LoginController extends GetxController {
     } catch (e) {loading(false);
     Get.snackbar("Error", e.toString(), backgroundColor: Colors.red);
     }
+
   }
 }
