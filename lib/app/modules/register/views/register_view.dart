@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:peminjam_perpustakaan_kelas_b/app/routes/app_pages.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../controllers/register_controller.dart';
 
@@ -15,9 +17,13 @@ class RegisterView extends GetView<RegisterController> {
           children: [
             Image(
               image: AssetImage('assets/images/font_libryverse.png'),width: 120.0,),
-            Text("Help",
-              style: TextStyle(
-                  color: Colors.red,fontSize: 16.0,fontFamily: 'Poopins',fontWeight: FontWeight.bold),)
+            InkWell(
+              onTap: ()=> launchUrl(Uri.parse('https://www,google.com')),
+              child: Text(
+                "Help", style: TextStyle(
+                  color: Colors.red,fontSize: 16.0,fontFamily: 'Poopins',fontWeight: FontWeight.bold),
+              ),
+            )
           ],
         ),
 
@@ -73,16 +79,24 @@ class RegisterView extends GetView<RegisterController> {
                         ),
                       ),
                       SizedBox(height: 30),
-                      TextButton(
-                        style: TextButton.styleFrom(
-                            textStyle: TextStyle(
-                                fontSize: 12)
-                        ),
-                        onPressed: (){},
-                        child: Text("Already have account? Log in",style: TextStyle(
-                            fontFamily: 'Poppins',fontWeight: FontWeight.bold,color: Colors.black45)
-                        ),
-                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Already have account?",style: TextStyle(
+                              fontFamily: 'Poppins',fontWeight: FontWeight.w500,color: Colors.black,fontSize: 14)),
+                          TextButton(
+                            style: TextButton.styleFrom(
+                                textStyle: TextStyle(
+                                    fontSize: 14)
+                            ),
+                            onPressed: () => Get.offAllNamed(Routes.LOGIN),
+                            child: Text("Log in",style: TextStyle(
+                                fontFamily: 'Poppins',fontWeight: FontWeight.bold,color: Colors.black)
+                            ),
+                          ),
+                        ],
+                      )
+                      ,
                     ],
                   ))
           ),

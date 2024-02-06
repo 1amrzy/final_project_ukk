@@ -2,16 +2,22 @@ import 'package:get/get.dart';
 
 import '../modules/add_peminjaman/bindings/add_peminjaman_binding.dart';
 import '../modules/add_peminjaman/views/add_peminjaman_view.dart';
+import '../modules/boarding_screen/bindings/boarding_screen_binding.dart';
+import '../modules/boarding_screen/views/boarding_screen_view.dart';
 import '../modules/book/bindings/book_binding.dart';
 import '../modules/book/views/book_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/next_register/bindings/next_register_binding.dart';
+import '../modules/next_register/views/next_register_view.dart';
 import '../modules/peminjaman/bindings/peminjaman_binding.dart';
 import '../modules/peminjaman/views/peminjaman_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
+import '../modules/splash_screen/bindings/splash_screen_binding.dart';
+import '../modules/splash_screen/views/splash_screen_view.dart';
 
 part 'app_routes.dart';
 
@@ -50,6 +56,21 @@ class AppPages {
       name: _Paths.ADD_PEMINJAMAN,
       page: () => const AddPeminjamanView(),
       binding: AddPeminjamanBinding(),
+    ),
+    GetPage(
+      name: _Paths.NEXT_REGISTER,
+      page: () => const NextRegisterView(),
+      binding: NextRegisterBinding(),
+    ),
+    GetPage(
+      name: _Paths.SPLASH_SCREEN,
+      page: () => const SplashScreenView(),
+      binding: SplashScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.BOARDING_SCREEN,
+      page: () => const BoardingScreenView(),
+      binding: BoardingScreenBinding(),
     ),
   ];
 }

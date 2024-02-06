@@ -1,5 +1,8 @@
 import 'dart:developer';
+import 'dart:js';
 
+import 'package:art_sweetalert/art_sweetalert.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/data/model/response_login.dart';
@@ -57,6 +60,14 @@ class LoginController extends GetxController {
           await StorageProvider.write(StorageKey.idUser, responseLogin.data!.id!.toString());
           await StorageProvider.write(StorageKey.status, "logged");
           Get.offAllNamed(Routes.HOME);
+          ArtSweetAlert.show(
+              context: Get.context!,
+              artDialogArgs: ArtDialogArgs(
+                  type: ArtSweetAlertType.success,
+                  title: "Welcome",
+                  text: "Show a success message with an icon",
+              )
+          );
         }else {
           Get.snackbar("Sorry", "Failed to Login", backgroundColor: Colors.orange);
         }
