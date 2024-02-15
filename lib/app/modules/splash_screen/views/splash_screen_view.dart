@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
+import 'package:peminjam_perpustakaan_kelas_b/app/routes/app_pages.dart';
 
 import '../controllers/splash_screen_controller.dart';
 
@@ -8,17 +10,20 @@ class SplashScreenView extends GetView<SplashScreenController> {
   const SplashScreenView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    Future.delayed(
+      const Duration(milliseconds: 5100),
+        ((){
+          Get.offAllNamed(Routes.LOGIN);
+        })
+    );
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SplashScreenView'),
-        centerTitle: true,
-      ),
-      body: const Center(
-        child: Text(
-          'SplashScreenView is working',
-          style: TextStyle(fontSize: 20),
+      body: Center(
+        child: Container(
+          color: Colors.white,
+          child: 
+          Lottie.asset('images/splash.json', fit: BoxFit.fill),
         ),
-      ),
+      )
     );
   }
 }
