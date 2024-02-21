@@ -59,6 +59,118 @@ class RegisterView extends GetView<RegisterController> {
                           ),
                         ),
                       ),
+                      Container(
+                        child: Padding(
+                          padding:
+                          EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                          child: TextField(
+                            //style: ,
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Color(0xFFB6B3B3).withOpacity(0.4),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0),
+                                  borderRadius: BorderRadius.circular(15.15),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                    BorderSide(color: Colors.red, width: 2.0),
+                                    borderRadius: BorderRadius.circular(15.15)),
+                                hintText: 'Nama Lengkap',
+                                hintStyle: TextStyle(fontFamily: 'Poppins', color: Colors.deepOrange)
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: Padding(
+                          padding:
+                          EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                          child: TextField(
+                            //style: ,
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Color(0xFFB6B3B3).withOpacity(0.4),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0),
+                                  borderRadius: BorderRadius.circular(15.15),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                    BorderSide(color: Colors.red, width: 2.0),
+                                    borderRadius: BorderRadius.circular(15.15)),
+                                hintText: 'Username',
+                                hintStyle: TextStyle(fontFamily: 'Poppins', color: Colors.deepOrange)
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: Padding(
+                          padding:
+                          EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                          child: TextField(
+                            //style: ,
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Color(0xFFB6B3B3).withOpacity(0.4),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0),
+                                  borderRadius: BorderRadius.circular(15.15),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                    BorderSide(color: Colors.red, width: 2.0),
+                                    borderRadius: BorderRadius.circular(15.15)),
+                                hintText: 'Email',
+                                hintStyle: TextStyle(fontFamily: 'Poppins', color: Colors.deepOrange)
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: Padding(
+                            padding:
+                            EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                            child: Obx(() => TextFormField(
+                              controller: controller.passwordcontroller,
+                              autocorrect: true,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'Please enter your password';
+                                }return null;
+                              },
+                              obscureText: controller.showpassword.value,
+                              decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor:
+                                  Color(0xFFB6B3B3).withOpacity(0.4),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors.red, width: 2.0),
+                                    borderRadius:
+                                    BorderRadius.circular(15.15),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.red, width: 2.0),
+                                      borderRadius:
+                                      BorderRadius.circular(15.15)),
+                                  hintText: 'Password',
+                                  hintStyle: TextStyle(fontFamily: 'Poppins', color: Colors.deepOrange),
+                                  suffix: InkWell(
+                                    child: Icon(Icons.visibility,
+                                        color: Colors.grey, size: 15),
+                                    onTap: () {
+                                      controller.showpassword.value =
+                                      !controller.showpassword.value;
+                                    },
+                                  )),
+                            ))),
+                      ),
                       FractionallySizedBox(
                         widthFactor: 0.7,
                         child: Container(

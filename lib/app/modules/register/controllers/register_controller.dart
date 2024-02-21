@@ -16,6 +16,8 @@ class RegisterController extends GetxController {
   final TextEditingController alamatController = TextEditingController();
   final TextEditingController passwordcontroller = TextEditingController();
 
+  var showpassword = true.obs;
+
   final count = 0.obs;
   @override
   void onInit() {

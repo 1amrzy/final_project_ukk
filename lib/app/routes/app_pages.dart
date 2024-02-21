@@ -10,8 +10,6 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
-import '../modules/next_register/bindings/next_register_binding.dart';
-import '../modules/next_register/views/next_register_view.dart';
 import '../modules/peminjaman/bindings/peminjaman_binding.dart';
 import '../modules/peminjaman/views/peminjaman_view.dart';
 import '../modules/register/bindings/register_binding.dart';
@@ -56,11 +54,6 @@ class AppPages {
       name: _Paths.ADD_PEMINJAMAN,
       page: () => const AddPeminjamanView(),
       binding: AddPeminjamanBinding(),
-    ),
-    GetPage(
-      name: _Paths.NEXT_REGISTER,
-      page: () => const NextRegisterView(),
-      binding: NextRegisterBinding(),
     ),
     GetPage(
       name: _Paths.SPLASH_SCREEN,
