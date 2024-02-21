@@ -32,16 +32,16 @@ class BoardingScreenView extends StatelessWidget {
       pageBackgroundColor: Colors.white,
       background: [
         Image.asset(
-          'assets/slide_1.png',
-          height: 400,
+          'assets/images/slide_first.png',
+          height: 640,
         ),
         Image.asset(
-          'assets/slide_2.png',
-          height: 400,
+          'assets/images/slide_second.png',
+          height: 640,
         ),
         Image.asset(
-          'assets/slide_3.png',
-          height: 400,
+          'assets/images/slide_third.png',
+          height: 640,
         ),
       ],
       speed: 1.8,
@@ -58,7 +58,7 @@ class BoardingScreenView extends StatelessWidget {
                 height: 480,
               ),
               Text(
-                'On your way...',
+                'Easy to read',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.red,
@@ -70,7 +70,7 @@ class BoardingScreenView extends StatelessWidget {
                 height: 20,
               ),
               const Text(
-                'to find the perfect looking Onboarding for your app?',
+                'ease of reading is a priority, supporting education',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.black,
@@ -93,7 +93,7 @@ class BoardingScreenView extends StatelessWidget {
                 height: 480,
               ),
               Text(
-                'You’ve reached your destination.',
+                'Solution to read all of us',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.red,
@@ -105,7 +105,7 @@ class BoardingScreenView extends StatelessWidget {
                 height: 20,
               ),
               const Text(
-                'Sliding with animation',
+                'Various kinds of books and articles are here',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.black,
@@ -140,7 +140,7 @@ class BoardingScreenView extends StatelessWidget {
                 height: 20,
               ),
               const Text(
-                'Where everything is possible and customize your onboarding.',
+                '"today a reader, tomorrow a leader" -Margaret Fuller.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.black,

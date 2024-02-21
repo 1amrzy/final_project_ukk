@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:peminjam_perpustakaan_kelas_b/app/routes/app_pages.dart';
 
-class HomeController extends GetxController {
+class ProfileController extends GetxController {
+  //TODO: Implement ProfileController
 
   final count = 0.obs;
   @override
@@ -20,12 +20,4 @@ class HomeController extends GetxController {
   }
 
   void increment() => count.value++;
-  
-  void buku(){
-    Get.toNamed(Routes.BOOK);
-}
-
-  void peminjaman(){
-    Get.toNamed(Routes.PEMINJAMAN);
-  }
 }

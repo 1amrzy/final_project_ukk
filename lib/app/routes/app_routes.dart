@@ -12,6 +12,9 @@ abstract class Routes {
   static const NEXT_REGISTER = _Paths.NEXT_REGISTER;
   static const SPLASH_SCREEN = _Paths.SPLASH_SCREEN;
   static const BOARDING_SCREEN = _Paths.BOARDING_SCREEN;
+  static const ARTICLE = _Paths.ARTICLE;
+  static const BOOKMARK = _Paths.BOOKMARK;
+  static const PROFILE = _Paths.PROFILE;
 }
 
 abstract class _Paths {
@@ -25,4 +28,7 @@ abstract class _Paths {
   static const NEXT_REGISTER = '/next-register';
   static const SPLASH_SCREEN = '/splash-screen';
   static const BOARDING_SCREEN = '/boarding-screen';
+  static const ARTICLE = '/article';
+  static const BOOKMARK = '/bookmark';
+  static const PROFILE = '/profile';
 }

@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -39,32 +40,14 @@ class RegisterView extends GetView<RegisterController> {
                         child: Padding(
                           padding:
                           EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                          child: TextField(
-                            //style: ,
-                            decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Color(0xFFB6B3B3).withOpacity(0.4),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0),
-                                  borderRadius: BorderRadius.circular(15.15),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                    BorderSide(color: Colors.red, width: 2.0),
-                                    borderRadius: BorderRadius.circular(15.15)),
-                                hintText: 'Email',
-                                hintStyle: TextStyle(fontFamily: 'Poppins', color: Colors.deepOrange)
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Padding(
-                          padding:
-                          EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                          child: TextField(
-                            //style: ,
+                          child: TextFormField(
+                            autocorrect: true,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Please enter your password';
+                              }return null;
+                            },
+                            //style:
                             decoration: InputDecoration(
                                 filled: true,
                                 fillColor: Color(0xFFB6B3B3).withOpacity(0.4),
@@ -87,8 +70,14 @@ class RegisterView extends GetView<RegisterController> {
                         child: Padding(
                           padding:
                           EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                          child: TextField(
-                            //style: ,
+                          child: TextFormField(
+                            autocorrect: true,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Please enter your password';
+                              }return null;
+                            },
+                            //style:
                             decoration: InputDecoration(
                                 filled: true,
                                 fillColor: Color(0xFFB6B3B3).withOpacity(0.4),
@@ -111,7 +100,12 @@ class RegisterView extends GetView<RegisterController> {
                         child: Padding(
                           padding:
                           EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                          child: TextField(
+                          child: TextFormField(
+                            controller: controller.usernameController,
+                            autocorrect: true,
+                            validator: (value) {
+                              return EmailValidator.validate(value!) ? null : 'Masukan Email yang Valid!';
+                            },
                             //style: ,
                             decoration: InputDecoration(
                                 filled: true,

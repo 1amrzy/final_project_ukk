@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -9,26 +10,13 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('HomeView'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Column(
-            children: [
-              ElevatedButton(onPressed: (){
-                controller.buku();
-              },
-                child: Text("Book"),
-              ),
-              ElevatedButton(onPressed: (){
-                controller.peminjaman();
-              },
-                child: Text("Peminjaman"),
-              ),
-            ]
+      body: Container(
+        child: Center(
+          child: Text(
+            "Home"
+          ),
         ),
-      ),
+      )
     );
   }
 }
