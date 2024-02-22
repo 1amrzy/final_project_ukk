@@ -30,18 +30,22 @@ class BoardingScreenView extends StatelessWidget {
       totalPage: 3,
       headerBackgroundColor: Colors.white,
       pageBackgroundColor: Colors.white,
+      centerBackground: true,
       background: [
         Image.asset(
           'assets/images/slide_first.png',
           height: 640,
+          alignment: Alignment.center,
         ),
         Image.asset(
           'assets/images/slide_second.png',
           height: 640,
+          alignment: Alignment.center,
         ),
         Image.asset(
           'assets/images/slide_third.png',
           height: 640,
+          alignment: Alignment.center,
         ),
       ],
       speed: 1.8,
@@ -140,7 +144,7 @@ class BoardingScreenView extends StatelessWidget {
                 height: 20,
               ),
               const Text(
-                '"today a reader, tomorrow a leader" -Margaret Fuller.',
+                '"today a reader, tomorrow a leader" \n-Margaret Fuller.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.black,

@@ -32,8 +32,12 @@ class LoginView extends GetView<LoginController> {
         ),
 
         // Bagian Body
-        body: Center(
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
           child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.width,
+            alignment: Alignment.center,
             child:  Form(
                 key: controller.formkey,
                 child: Column(
