@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 import 'package:get/get.dart';
-import 'package:peminjam_perpustakaan_kelas_b/app/modules/login/views/login_view.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/routes/app_pages.dart';
 
 
@@ -16,17 +15,17 @@ class BoardingScreenView extends StatelessWidget {
         Get.offAllNamed(Routes.LOGIN);
       },
       finishButtonStyle: FinishButtonStyle(
-        backgroundColor: CupertinoColors.darkBackgroundGray,
+        backgroundColor: Color(0xFFFF0000),
       ),
       skipTextButton: Text(
         'Skip',
         style: TextStyle(
           fontSize: 16,
-          color: Colors.red,
+          color: Color(0xFFFF0000),
           fontWeight: FontWeight.w600,
         ),
       ),
-      controllerColor: Colors.deepOrange,
+      controllerColor: Colors.grey,
       totalPage: 3,
       headerBackgroundColor: Colors.white,
       pageBackgroundColor: Colors.white,
@@ -65,7 +64,7 @@ class BoardingScreenView extends StatelessWidget {
                 'Easy to read',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.red,
+                  color: Color(0xFFFF0000),
                   fontSize: 24.0,
                   fontWeight: FontWeight.w600,
                 ),
@@ -100,7 +99,7 @@ class BoardingScreenView extends StatelessWidget {
                 'Solution to read all of us',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.red,
+                  color: Color(0xFFFF0000),
                   fontSize: 24.0,
                   fontWeight: FontWeight.w600,
                 ),
@@ -135,7 +134,7 @@ class BoardingScreenView extends StatelessWidget {
                 'Start now!',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.red,
+                  color: Color(0xFFFF0000),
                   fontSize: 24.0,
                   fontWeight: FontWeight.w600,
                 ),
