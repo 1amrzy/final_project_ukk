@@ -21,7 +21,7 @@ class SplashScreenView extends GetView<SplashScreenController> {
         child: Container(
           color: Colors.white,
           child: 
-          Lottie.asset('images/splash.json', fit: BoxFit.fill),
+          Lottie.asset('images/splash.json', fit: BoxFit.cover),
         ),
       )
     );
