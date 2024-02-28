@@ -116,7 +116,8 @@ class LoginView extends GetView<LoginController> {
                                             controller.showpassword.value =
                                             !controller.showpassword.value;
                                           },
-                                        )),
+                                        )
+                                    ),
                                   ))),
                             ),
                             FractionallySizedBox(

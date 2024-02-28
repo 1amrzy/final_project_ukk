@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:peminjam_perpustakaan_kelas_b/app/modules/bookmark/views/bookmark_view.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/modules/home/views/home_view.dart';
+import 'package:peminjam_perpustakaan_kelas_b/app/modules/profile/views/profile_view.dart';
 
 import '../../article/views/article_view.dart';
 import '../../book/views/book_view.dart';
@@ -20,9 +22,9 @@ class LayoutView extends StatelessWidget{
                   index: controller.tabIndex,
                   children: [
                     HomeView(),
-                    BookView(),
                     ArticleView(),
-                    ArticleView(),
+                    BookmarkView(),
+                    ProfileView(),
                   ],
                 )
             ),

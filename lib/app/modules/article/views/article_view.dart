@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -9,16 +10,37 @@ class ArticleView extends GetView<ArticleController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('ArticleView'),
-        centerTitle: true,
-      ),
-      body: const Center(
-        child: Text(
-          'ArticleView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+     body: CustomScrollView(
+       slivers: [
+         SliverAppBar(
+           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+           elevation: 0,
+           pinned: true,
+           bottom: const PreferredSize(
+               preferredSize: Size.fromHeight(-10.0), child: SizedBox()),
+           flexibleSpace: const SearchBar(),
+         ),
+         SliverList(
+           delegate: SliverChildBuilderDelegate(
+                 (BuildContext con, int index){
+               return Padding(
+                 padding:
+                 EdgeInsets.only(left: 20, bottom: 20, right: 10),
+                 child: Container(
+                     decoration: BoxDecoration(
+                       borderRadius: BorderRadius.circular(20),
+                       color: CupertinoColors.secondarySystemFill.withOpacity(0.3),
+                     ),
+                     height: 200,
+                     width: MediaQuery.of(context).size.width
+                 ),
+               );
+             },
+             childCount: 20,
+           ),
+         )
+       ],
+     ),
     );
   }
 }
