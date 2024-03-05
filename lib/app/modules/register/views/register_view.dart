@@ -39,6 +39,7 @@ class RegisterView extends GetView<RegisterController> {
                 height: heightContainer,
                 child:
                 Form(
+                  key: controller.formkey,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,10 +52,11 @@ class RegisterView extends GetView<RegisterController> {
                                   padding:
                                   EdgeInsets.symmetric(horizontal: 60, vertical: 11),
                                   child: TextFormField(
+                                    controller: controller.usernameController,
                                     autocorrect: true,
                                     validator: (value) {
                                       if (value!.isEmpty) {
-                                        return 'Please enter your password';
+                                        return 'Please enter your nama lengkap';
                                       }return null;
                                     },
                                     //style:
@@ -81,10 +83,10 @@ class RegisterView extends GetView<RegisterController> {
                                   padding:
                                   EdgeInsets.symmetric(horizontal: 60, vertical: 11),
                                   child: TextFormField(
-                                    controller: controller.usernameController,
+                                    controller: controller.emailController,
                                     autocorrect: true,
                                     validator: (value) {
-                                      return EmailValidator.validate(value!) ? null : 'Masukan Email yang Valid!';
+                                      return EmailValidator.validate(value!) ? null : 'Please enter your valid email!';
                                     },
                                     //style: ,
                                     decoration: InputDecoration(

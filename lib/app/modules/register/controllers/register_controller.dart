@@ -10,10 +10,8 @@ import '../../../data/provider/api_provider.dart';
 class RegisterController extends GetxController {
   final loading = false.obs;
   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
-  final TextEditingController namaController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
-  final TextEditingController telpController = TextEditingController();
-  final TextEditingController alamatController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordcontroller = TextEditingController();
 
   var showpassword = true.obs;
@@ -43,15 +41,14 @@ class RegisterController extends GetxController {
         final response = await ApiProvider.instance().post(Endpoint.register,
             data:
             {
-              "nama": namaController.text.toString(),
               "username": usernameController.text.toString(),
-              "telp": int.parse(telpController.text.toString()),
-              "alamat": alamatController.text.toString(),
+              "email": emailController.text.toString(),
               "password": passwordcontroller.text.toString(),
             }
         );
         if (response.statusCode == 201) {
-          Get.back();
+          Get.offAllNamed(Routes.LOGIN);
+          Get.snackbar("Success", "Register success, please login", backgroundColor: Colors.red);
         }else {
           Get.snackbar("Sorry", "Failed to Register", backgroundColor: Colors.orange);
         }

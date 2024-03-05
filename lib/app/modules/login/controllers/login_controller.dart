@@ -15,7 +15,7 @@ import '../../../data/provider/storage_provider.dart';
 class LoginController extends GetxController {
   final loading = false.obs;
   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
-  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   //TODO: Implement LoginController
 
@@ -34,7 +34,7 @@ class LoginController extends GetxController {
     String status = StorageProvider.read(StorageKey.status);
     log("status : $status");
     if(status == "logged"){
-      Get.offAllNamed(Routes.HOME);
+      Get.offAllNamed(Routes.LAYOUT);
     }
   }
 
@@ -53,7 +53,7 @@ class LoginController extends GetxController {
       if (formkey.currentState!.validate()){
         final response = await ApiProvider.instance().post(Endpoint.login,
             data: dio.FormData.fromMap(
-                {"username": usernameController.text.toString(),
+                {"email": emailController.text.toString(),
                   "password": passwordController.text.toString()}));
         if (response.statusCode == 200) {
           ResponseLogin responseLogin = ResponseLogin.fromJson(response.data);

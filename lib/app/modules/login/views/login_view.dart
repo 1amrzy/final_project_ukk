@@ -41,6 +41,7 @@ class LoginView extends GetView<LoginController> {
             height: heightContainer,
               child:
               Form(
+                key: controller.formkey,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -53,7 +54,7 @@ class LoginView extends GetView<LoginController> {
                                 padding:
                                 EdgeInsets.symmetric(horizontal: 60, vertical: 11),
                                 child: TextFormField(
-                                  controller: controller.usernameController,
+                                  controller: controller.emailController,
                                   autocorrect: true,
                                   validator: (value) {
                                     return EmailValidator.validate(value!) ? null : 'Masukan Email yang Valid!';
