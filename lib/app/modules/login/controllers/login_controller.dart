@@ -59,7 +59,7 @@ class LoginController extends GetxController {
           ResponseLogin responseLogin = ResponseLogin.fromJson(response.data);
           await StorageProvider.write(StorageKey.idUser, responseLogin.data!.id!.toString());
           await StorageProvider.write(StorageKey.status, "logged");
-          Get.offAllNamed(Routes.HOME);
+          Get.offAllNamed(Routes.LAYOUT);
           ArtSweetAlert.show(
               context: Get.context!,
               artDialogArgs: ArtDialogArgs(

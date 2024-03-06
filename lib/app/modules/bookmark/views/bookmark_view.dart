@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:peminjam_perpustakaan_kelas_b/app/component/customSlide.dart';
 
 import '../controllers/bookmark_controller.dart';
 
@@ -13,12 +14,7 @@ class BookmarkView extends GetView<BookmarkController> {
         title: const Text('BookmarkView'),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text(
-          'BookmarkView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+      body: Center()
     );
   }
 }

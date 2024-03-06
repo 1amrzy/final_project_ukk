@@ -4,55 +4,73 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:peminjam_perpustakaan_kelas_b/app/component/customSearchBar.dart';
+import 'package:peminjam_perpustakaan_kelas_b/app/component/customSlide.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
-
     return Scaffold(
         body: CustomScrollView(
       slivers: [
         SliverAppBar(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           elevation: 0,
-          pinned: true,
           centerTitle: false,
-          expandedHeight: 320.0,
+          expandedHeight: 300.0,
           flexibleSpace: const FlexibleSpaceBar(
             background: Image(
               image: AssetImage('assets/images/slide_1.png'),
-              fit: BoxFit.contain,
+              fit: BoxFit.cover,
             ),
           ),
         ),
         SliverAppBar(
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          elevation: 0,
+          backgroundColor: Colors.white,
           pinned: true,
-          bottom: const PreferredSize(
-              preferredSize: Size.fromHeight(-10.0), child: SizedBox()),
-          flexibleSpace: const SearchBar(),
+          bottom: PreferredSize(
+              preferredSize: Size.fromHeight(30),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      filled: true,
+                      prefixIcon: Icon(Icons.search,color: Color(0xFF6F6F6F)),
+                      fillColor: Color(0xFFB6B3B3).withOpacity(0.4),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.30),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white, width: 2.0),
+                          borderRadius: BorderRadius.circular(30.30)),
+                      hintText: 'What do you want?',
+                      hintStyle: TextStyle(
+                          fontFamily: 'Poppins', color: Color(0xFF6F6F6F))),
+                ),
+              )),
+          // flexibleSpace: const SearchBar(),
         ),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (BuildContext con, int index) {
-              return Padding(
-                padding: EdgeInsets.only(left: 20, bottom: 20, right: 10),
-                child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color:
-                          CupertinoColors.secondarySystemFill.withOpacity(0.3),
-                    ),
-                    height: 200,
-                    width: MediaQuery.of(context).size.width),
-              );
-            },
-            childCount: 20,
+        SliverToBoxAdapter(
+          child: customSlide(
+            context: Get.context!,
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: customSlide(
+            context: Get.context!,
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: customSlide(
+            context: Get.context!,
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: customSlide(
+            context: Get.context!,
           ),
         )
       ],
