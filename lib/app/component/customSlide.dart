@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class customSlide extends StatelessWidget {
   final context;
@@ -19,9 +20,9 @@ class customSlide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
       child: Container(
-        height: 165,
+        height: 100,
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemCount: 5,
@@ -37,10 +38,13 @@ class customSlide extends StatelessWidget {
   Widget builCard({
     required CardItem items,
   }) =>
-      Container(
-        width: 100,
-        height: 130,
-        color: items.background,
+      ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Container(
+          width: 150,
+          height: 50,
+          color: items.background,
+        ),
       );
 }
 

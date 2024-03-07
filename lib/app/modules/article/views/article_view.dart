@@ -13,12 +13,29 @@ class ArticleView extends GetView<ArticleController> {
      body: CustomScrollView(
        slivers: [
          SliverAppBar(
-           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-           elevation: 0,
+           backgroundColor: Colors.white,
            pinned: true,
-           bottom: const PreferredSize(
-               preferredSize: Size.fromHeight(-10.0), child: SizedBox()),
-           flexibleSpace: const SearchBar(),
+           bottom: PreferredSize(
+               preferredSize: Size.fromHeight(30),
+               child: Padding(
+                 padding:
+                 const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                 child: TextFormField(
+                   decoration: InputDecoration(
+                       filled: true,
+                       prefixIcon: Icon(Icons.search,color: Color(0xFF6F6F6F)),
+                       fillColor: Color(0xFFB6B3B3).withOpacity(0.4),
+                       focusedBorder: OutlineInputBorder(
+                         borderSide: BorderSide(color: Color(0xFFB6B3B3), width: 2.0),
+                         borderRadius: BorderRadius.circular(30.30),
+                       ),
+                       enabledBorder: OutlineInputBorder(
+                           borderSide: BorderSide(color: Color(0xFFB6B3B3), width: 2.0),
+                           borderRadius: BorderRadius.circular(30.30)),
+                       ),
+                 ),
+               )),
+           // flexibleSpace: const SearchBar(),
          ),
          SliverList(
            delegate: SliverChildBuilderDelegate(
