@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/component/customListBuku.dart';
+import 'package:peminjam_perpustakaan_kelas_b/app/component/customListBuku2.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/component/customSearchBar.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/component/customSlide.dart';
 import '../controllers/home_controller.dart';
@@ -61,10 +62,39 @@ class HomeView extends GetView<HomeController> {
           ),
         ),
         SliverToBoxAdapter(
-          child: CustomListBuku(
-            context: Get.context!,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Recommended",
+                  style:TextStyle(
+                      fontFamily: 'Poppins', color: Color(0xFF000000),fontWeight: FontWeight.w700,fontSize: 18
+                  )),
+                CustomListBuku(
+                  context: Get.context!
+                ),
+              ],
+            ),
           ),
         ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Paling Populer",
+                    style:TextStyle(
+                        fontFamily: 'Poppins', color: Color(0xFF000000),fontWeight: FontWeight.w700,fontSize: 18
+                    )),
+                CustomListBuku2(
+                    context: Get.context!
+                ),
+              ],
+            ),
+          ),
+        )
       ],
     ));
   }

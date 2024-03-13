@@ -5,34 +5,34 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CustomListBuku extends StatelessWidget {
+class CustomListBuku2 extends StatelessWidget {
   final context;
 
-  CustomListBuku({
+  CustomListBuku2({
     super.key,
     required this.context,
   });
 
   List<CardItem> items = [
     CardItem(
-      imageURl: "assets/buku/novel_pulang.png",
-      judulBuku: "Pulang",
+      imageURl: "assets/buku/novel_gadisKretek.png",
+      judulBuku: "Gadis Kretek",
     ),
     CardItem(
-      imageURl: "assets/buku/novel_nonaVenus&TuanMars.png",
-      judulBuku: "Nona Venus & Tuan Mars",
+      imageURl: "assets/buku/novel_monster.png",
+      judulBuku: "Monster",
     ),
     CardItem(
-      imageURl: "assets/buku/novel_siAnakSavana.png",
-      judulBuku: "Si Anak Savana",
+      imageURl: "assets/buku/ensiklopedia_atomicHabits.png",
+      judulBuku: "Atomic Habits",
     ),
     CardItem(
-      imageURl: "assets/buku/novel_theKeymasters.png",
-      judulBuku: "The Keymasters",
+      imageURl: "assets/buku/komik_detektifConan103.png",
+      judulBuku: "Detektif Conan:103",
     ),
     CardItem(
-      imageURl: "assets/buku/novel_tujuhKelana.png",
-      judulBuku: "Tujuh Kelana",
+      imageURl: "assets/buku/komik_sulitBerkomunikasi.png",
+      judulBuku: "Kita Sulit Berkomunikasi",
     )
   ];
 
