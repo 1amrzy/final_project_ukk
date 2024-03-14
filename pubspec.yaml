@@ -22,7 +22,7 @@ dependencies:
   get: 4.6.5
   email_validator: '^2.1.16'
   url_launcher: ^6.0.8
-  flutter_svg: ^2.0.5
+  flutter_svg: ^2.0.10+1
   flutter: 
     sdk: flutter
   art_sweetalert: ^0.0.5
@@ -54,6 +54,7 @@ flutter:
   assets:
     - assets/images/
     - assets/buku/
+    - assets/kategoriBuku/
 
   fonts:
     - family: Poppins

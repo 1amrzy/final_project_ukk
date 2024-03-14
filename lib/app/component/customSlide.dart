@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class customSlide extends StatelessWidget {
   final context;
@@ -10,11 +11,13 @@ class customSlide extends StatelessWidget {
   });
 
   List<CardItem> items = [
-    CardItem(background: Color(0xFFD9D9D9)),
-    CardItem(background: Color(0xFFD9D9D9)),
-    CardItem(background: Color(0xFFD9D9D9)),
-    CardItem(background: Color(0xFFD9D9D9)),
-    CardItem(background: Color(0xFFD9D9D9)),
+    CardItem(imageURl: 'assets/kategoriBuku/novel.svg'),
+    CardItem(imageURl: 'assets/kategoriBuku/manga.svg'),
+    CardItem(imageURl: 'assets/kategoriBuku/komik.svg'),
+    CardItem(imageURl: 'assets/kategoriBuku/ensiklopedia.svg'),
+    CardItem(imageURl: 'assets/kategoriBuku/majalah.svg'),
+    CardItem(imageURl: 'assets/kategoriBuku/biografi.svg'),
+
   ];
 
   @override
@@ -22,7 +25,7 @@ class customSlide extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
       child: Container(
-        height: 100,
+        height: 120,
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemCount: 5,
@@ -40,18 +43,21 @@ class customSlide extends StatelessWidget {
   }) =>
       ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child: Container(
+        child: SizedBox(
           width: 150,
           height: 50,
-          color: items.background,
+          child: SvgPicture.asset(
+            items.imageURl,
+            fit: BoxFit.cover,
+          ),
         ),
       );
 }
 
 class CardItem {
-  final Color background;
+  final String imageURl;
 
   const CardItem({
-    required this.background,
+    required this.imageURl,
   });
 }

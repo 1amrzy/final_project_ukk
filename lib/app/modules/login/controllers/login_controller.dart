@@ -1,8 +1,7 @@
 import 'dart:developer';
-import 'dart:js';
 
 import 'package:art_sweetalert/art_sweetalert.dart';
-import 'package:email_validator/email_validator.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/data/model/response_login.dart';
@@ -63,9 +62,8 @@ class LoginController extends GetxController {
           ArtSweetAlert.show(
               context: Get.context!,
               artDialogArgs: ArtDialogArgs(
-                  type: ArtSweetAlertType.success,
                   title: "Welcome",
-                  text: "Show a success message with an icon",
+                  text: "Libryverse still beta version and will get much update",
               )
           );
         }else {

@@ -70,7 +70,7 @@ class CustomListBuku extends StatelessWidget {
       AutoSizeText(
         items.judulBuku,
         maxLines: 1,
-        maxFontSize: 16,
+        maxFontSize: 12,
         minFontSize: 12,
         style: GoogleFonts.plusJakartaSans(
           fontSize: 16.0,

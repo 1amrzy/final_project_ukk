@@ -24,7 +24,7 @@ class HomeView extends GetView<HomeController> {
           expandedHeight: 300.0,
           flexibleSpace: const FlexibleSpaceBar(
             background: Image(
-              image: AssetImage('assets/images/slide_1.png'),
+              image: AssetImage('assets/images/1.png'),
               fit: BoxFit.cover,
             ),
           ),
@@ -63,7 +63,7 @@ class HomeView extends GetView<HomeController> {
         ),
         SliverToBoxAdapter(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
