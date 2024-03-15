@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:peminjam_perpustakaan_kelas_b/app/component/customImageCarousel.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/component/customListBuku.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/component/customListBuku2.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/component/customSearchBar.dart';
@@ -23,9 +24,7 @@ class HomeView extends GetView<HomeController> {
           centerTitle: false,
           expandedHeight: 300.0,
           flexibleSpace: const FlexibleSpaceBar(
-            background: Image(
-              image: AssetImage('assets/images/1.png'),
-              fit: BoxFit.cover,
+            background: CustomImageCarousel(
             ),
           ),
         ),

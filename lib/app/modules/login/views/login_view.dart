@@ -57,7 +57,7 @@ class LoginView extends GetView<LoginController> {
                                   controller: controller.emailController,
                                   autocorrect: true,
                                   validator: (value) {
-                                    return EmailValidator.validate(value!) ? null : 'Masukan Email yang Valid!';
+                                    return EmailValidator.validate(value!) ? null : 'Please enter a valid email';
                                   },
                                   //style: ,
                                   decoration: InputDecoration(
