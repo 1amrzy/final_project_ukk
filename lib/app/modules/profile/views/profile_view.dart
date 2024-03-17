@@ -43,18 +43,127 @@ class ProfileView extends GetView<ProfileController> {
               cacheImage: true,
               showInitialTextAbovePicture: false,
             ),
-            InkWell(
-                 child : Row(
-                   mainAxisAlignment: MainAxisAlignment.center,
-                   crossAxisAlignment: CrossAxisAlignment.center,
-                   children: [
-                     Icon(Icons.person,
-                     color: Colors.black),
-                     Text("Edit Profile",style: TextStyle(
-                         fontFamily: 'Poppins',fontSize: 14,fontWeight: FontWeight.normal,color: Colors.white),),
-                   ],
-                 ),
-              ),
+            SizedBox(
+                height: 50
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: 45,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: const Color(0xFFD9D9D9)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: InkWell(
+                      onTap: (){},
+                         child : Row(
+                           mainAxisAlignment: MainAxisAlignment.start,
+                           crossAxisAlignment: CrossAxisAlignment.center,
+                           children: [
+                             Icon(Icons.person,
+                             size: 22,
+                             color: Colors.black),
+                             Text(
+                               "Account",style: TextStyle(
+                                 fontFamily: 'Poppins',fontSize: 14,fontWeight: FontWeight.w500,color: Colors.black),),
+                           ],
+                         ),
+                      ),
+                  ),
+                ),
+                SizedBox(
+                  height: 6
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 45,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: const Color(0xFFD9D9D9)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: InkWell(
+                      onTap: (){},
+                      child : Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(Icons.notifications,
+                              size: 22,
+                              color: Colors.black),
+                          Text(
+                            "Notifications",style: TextStyle(
+                              fontFamily: 'Poppins',fontSize: 14,fontWeight: FontWeight.w500,color: Colors.black),),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                    height: 6
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 45,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: const Color(0xFFD9D9D9)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: InkWell(
+                      onTap: (){},
+                      child : Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(Icons.workspace_premium,
+                              size: 22,
+                              color: Color(0xFFFFD600)),
+                          Text(
+                            "Try Membership!",style: TextStyle(
+                              fontFamily: 'Poppins',fontSize: 14,fontWeight: FontWeight.w500,color: Colors.black),),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                    height: 20
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 45,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: const Color(0xFFD9D9D9)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: InkWell(
+                      onTap: (){},
+                      child : Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(Icons.person,
+                              size: 22,
+                              color: Colors.red),
+                          Text(
+                            "Log Out",style: TextStyle(
+                              fontFamily: 'Poppins',fontSize: 14,fontWeight: FontWeight.w500,color: Colors.red),),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
