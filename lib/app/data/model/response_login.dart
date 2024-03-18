@@ -1,6 +1,6 @@
 /// status : 200
-/// message : "Login Success"
-/// data : {"id":1,"username":"testing","nama":"Romli","telp":"085334","alamat":"Solo","role":"PETUGAS","created_at":"2024-01-09T01:55:16.000000Z","updated_at":"2024-01-09T01:55:16.000000Z"}
+/// message : "Login Berhasil"
+/// data : {"id":1,"email":"pasya@smk.belajar.id","username":"Pasya","level":"User","token":"1|Sfe3Pb9YkBUowxFYdAiPgjFIWLYkLtZkwDqd17aDf60c8809"}
 
 class ResponseLogin {
   ResponseLogin({
@@ -30,54 +30,39 @@ class ResponseLogin {
 }
 
 /// id : 1
-/// username : "testing"
-/// nama : "Romli"
-/// telp : "085334"
-/// alamat : "Solo"
-/// role : "PETUGAS"
-/// created_at : "2024-01-09T01:55:16.000000Z"
-/// updated_at : "2024-01-09T01:55:16.000000Z"
+/// email : "pasya@smk.belajar.id"
+/// username : "Pasya"
+/// level : "User"
+/// token : "1|Sfe3Pb9YkBUowxFYdAiPgjFIWLYkLtZkwDqd17aDf60c8809"
 
 class DataLogin {
   DataLogin({
       this.id, 
+      this.email, 
       this.username, 
-      this.nama, 
-      this.telp, 
-      this.alamat, 
-      this.role, 
-      this.createdAt, 
-      this.updatedAt,});
+      this.level, 
+      this.token,});
 
   DataLogin.fromJson(dynamic json) {
     id = json['id'];
+    email = json['email'];
     username = json['username'];
-    nama = json['nama'];
-    telp = json['telp'];
-    alamat = json['alamat'];
-    role = json['role'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
+    level = json['level'];
+    token = json['token'];
   }
   int? id;
+  String? email;
   String? username;
-  String? nama;
-  String? telp;
-  String? alamat;
-  String? role;
-  String? createdAt;
-  String? updatedAt;
+  String? level;
+  String? token;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = id;
+    map['email'] = email;
     map['username'] = username;
-    map['nama'] = nama;
-    map['telp'] = telp;
-    map['alamat'] = alamat;
-    map['role'] = role;
-    map['created_at'] = createdAt;
-    map['updated_at'] = updatedAt;
+    map['level'] = level;
+    map['token'] = token;
     return map;
   }
 

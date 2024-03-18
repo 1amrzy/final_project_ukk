@@ -22,12 +22,18 @@ class LoginView extends GetView<LoginController> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Image(
-              image: AssetImage('assets/images/font_libryverse.png'),width: 120.0,),
+                image: AssetImage('assets/images/font_libryverse.png'),
+                width: 120.0,
+              ),
               InkWell(
-                onTap: ()=> launchUrl(Uri.parse('https://www,google.com')),
+                onTap: () => launchUrl(Uri.parse('https://www,google.com')),
                 child: Text(
-                  "Help", style: TextStyle(
-                      color: Color(0xFFFF0000),fontSize: 16.0,fontFamily: 'Poopins',fontWeight: FontWeight.bold),
+                  "Help",
+                  style: TextStyle(
+                      color: Color(0xFFFF0000),
+                      fontSize: 16.0,
+                      fontFamily: 'Poopins',
+                      fontWeight: FontWeight.bold),
                 ),
               )
             ],
@@ -37,11 +43,10 @@ class LoginView extends GetView<LoginController> {
         // Bagian Body
         body: SingleChildScrollView(
           child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: heightContainer,
-              child:
-              Form(
-                key: controller.formkey,
+              width: MediaQuery.of(context).size.width,
+              height: heightContainer,
+              child: Form(
+                  key: controller.formkey,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,109 +56,139 @@ class LoginView extends GetView<LoginController> {
                           children: [
                             Container(
                               child: Padding(
-                                padding:
-                                EdgeInsets.symmetric(horizontal: 60, vertical: 11),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 60, vertical: 11),
                                 child: TextFormField(
                                   controller: controller.emailController,
                                   autocorrect: true,
                                   validator: (value) {
-                                    return EmailValidator.validate(value!) ? null : 'Please enter a valid email';
+                                    return EmailValidator.validate(value!)
+                                        ? null
+                                        : 'Please enter a valid email';
                                   },
                                   //style: ,
                                   decoration: InputDecoration(
                                       filled: true,
-                                      fillColor: Color(0xFFB6B3B3).withOpacity(0.4),
+                                      fillColor:
+                                          Color(0xFFB6B3B3).withOpacity(0.4),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide:
-                                        BorderSide(color: Colors.red, width: 2.0),
-                                        borderRadius: BorderRadius.circular(15.15),
+                                        borderSide: BorderSide(
+                                            color: Colors.red, width: 2.0),
+                                        borderRadius:
+                                            BorderRadius.circular(15.15),
                                       ),
                                       enabledBorder: OutlineInputBorder(
-                                          borderSide:
-                                          BorderSide(color: Colors.red, width: 2.0),
-                                          borderRadius: BorderRadius.circular(15.15)),
+                                          borderSide: BorderSide(
+                                              color: Colors.red, width: 2.0),
+                                          borderRadius:
+                                              BorderRadius.circular(15.15)),
                                       hintText: 'Email',
-                                      hintStyle: TextStyle(fontFamily: 'Poppins', color: Colors.deepOrange)
-                                  ),
+                                      hintStyle: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          color: Colors.deepOrange)),
                                 ),
                               ),
                             ),
                             Container(
                               child: Padding(
-                                  padding:
-                                  EdgeInsets.symmetric(horizontal: 60, vertical: 11),
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 60, vertical: 11),
                                   child: Obx(() => TextFormField(
-                                    controller: controller.passwordController,
-                                    autocorrect: true,
-                                    validator: (value) {
-                                      if (value!.isEmpty) {
-                                        return 'Please enter your password';
-                                      }return null;
-                                    },
-                                    obscureText: controller.showpassword.value,
-                                    decoration: InputDecoration(
-                                        filled: true,
-                                        fillColor:
-                                        Color(0xFFB6B3B3).withOpacity(0.4),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                              color: Colors.red, width: 2.0),
-                                          borderRadius:
-                                          BorderRadius.circular(15.15),
-                                        ),
-                                        enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color: Colors.red, width: 2.0),
-                                            borderRadius:
-                                            BorderRadius.circular(15.15)),
-                                        hintText: 'Password',
-                                        hintStyle: TextStyle(fontFamily: 'Poppins', color: Colors.deepOrange),
-                                        suffixIcon: InkWell(
-                                          child: Icon(
-                                              controller.showpassword.value?
-                                              Icons.visibility: Icons.visibility_off,
-                                              color: Colors.grey, size: 15),
-                                          onTap: () {
-                                            controller.showpassword.value =
-                                            !controller.showpassword.value;
-                                          },
-                                        )
-                                    ),
-                                  ))),
+                                        controller:
+                                            controller.passwordController,
+                                        autocorrect: true,
+                                        validator: (value) {
+                                          if (value!.isEmpty) {
+                                            return 'Please enter your password';
+                                          }
+                                          return null;
+                                        },
+                                        obscureText:
+                                            controller.showpassword.value,
+                                        decoration: InputDecoration(
+                                            filled: true,
+                                            fillColor: Color(0xFFB6B3B3)
+                                                .withOpacity(0.4),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Colors.red,
+                                                  width: 2.0),
+                                              borderRadius:
+                                                  BorderRadius.circular(15.15),
+                                            ),
+                                            enabledBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                    color: Colors.red,
+                                                    width: 2.0),
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        15.15)),
+                                            hintText: 'Password',
+                                            hintStyle: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                color: Colors.deepOrange),
+                                            suffixIcon: InkWell(
+                                              child: Icon(
+                                                  controller.showpassword.value
+                                                      ? Icons.visibility
+                                                      : Icons.visibility_off,
+                                                  color: Colors.grey,
+                                                  size: 15),
+                                              onTap: () {
+                                                controller.showpassword.value =
+                                                    !controller
+                                                        .showpassword.value;
+                                              },
+                                            )),
+                                      ))),
                             ),
                             FractionallySizedBox(
                               widthFactor: 0.7,
                               child: Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 12, vertical: 16),
                                   child: SizedBox(
-                                    width: double.infinity ,height: 40.40,
-                                    child: Obx(() => controller.loading.value?
-                                    CircularProgressIndicator():
-                                    ElevatedButton(onPressed: (){
-                                      controller.login();
-                                    }, child: Text("Login",style: TextStyle(
-                                        fontFamily: 'Poppins',fontSize: 14,fontWeight: FontWeight.bold,color: Colors.white),),
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: Color(0xFFFF0000),
-                                      ),)
-                                    ),
-                                  )
-                              ),
+                                    width: double.infinity,
+                                    height: 40.40,
+                                    child: ElevatedButton(
+                                        onPressed: () {
+                                          controller.login();
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Color(0xFFFF0000),
+                                        ),
+                                        child: Obx(
+                                          () => controller.loading.value
+                                              ? CircularProgressIndicator(
+                                                  color: Color(0xFFFFFFFF),
+                                                )
+                                              : Text(
+                                                  "Login",
+                                                  style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.white),
+                                                ),
+                                        )),
+                                  )),
                             ),
                           ],
                         ),
                       ),
                       SizedBox(height: 75),
-
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 20),
                         child: Column(
                           children: [
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 15),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 30, vertical: 15),
                               width: 350,
                               child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     SizedBox(
                                         height: 45.0,
@@ -161,16 +196,16 @@ class LoginView extends GetView<LoginController> {
                                           style: ElevatedButton.styleFrom(
                                             backgroundColor: Color(0xFF3D5A98),
                                             shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(50),
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
                                             ),
                                           ),
-                                          onPressed: (){
-
-                                          }, child: Icon(
-                                          FontAwesomeIcons.facebook,
-                                          color: Color(0xFFFFFFFF),
-                                          size: 30,
-                                        ),
+                                          onPressed: () {},
+                                          child: Icon(
+                                            FontAwesomeIcons.facebook,
+                                            color: Color(0xFFFFFFFF),
+                                            size: 30,
+                                          ),
                                         )),
                                     SizedBox(
                                       width: 6,
@@ -181,14 +216,15 @@ class LoginView extends GetView<LoginController> {
                                           style: ElevatedButton.styleFrom(
                                             backgroundColor: Color(0xFFC8C8C8),
                                             shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(50),
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
                                             ),
                                           ),
-                                          onPressed: (){
-
-                                          }, child:
-                                        Image.asset("assets/images/google.png",
-                                          width: 30,),
+                                          onPressed: () {},
+                                          child: Image.asset(
+                                            "assets/images/google.png",
+                                            width: 30,
+                                          ),
                                         )),
                                     SizedBox(
                                       width: 6,
@@ -199,46 +235,46 @@ class LoginView extends GetView<LoginController> {
                                           style: ElevatedButton.styleFrom(
                                             backgroundColor: Color(0xFF000000),
                                             shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(50),
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
                                             ),
                                           ),
-                                          onPressed: (){
-
-                                          }, child: Icon(
-                                          FontAwesomeIcons.apple,
-                                          size: 30,
-                                          color: Color(0xFFFFFFFF),
-                                        ),
+                                          onPressed: () {},
+                                          child: Icon(
+                                            FontAwesomeIcons.apple,
+                                            size: 30,
+                                            color: Color(0xFFFFFFFF),
+                                          ),
                                         )),
-
                                   ]),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("Don't have an account?",style: TextStyle(
-                                    fontFamily: 'Poppins',fontWeight: FontWeight.w500,color: Colors.black,fontSize: 14)),
+                                Text("Don't have an account?",
+                                    style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black,
+                                        fontSize: 14)),
                                 TextButton(
                                   style: TextButton.styleFrom(
-                                      textStyle: TextStyle(
-                                          fontSize: 14)
-                                  ),
-                                  onPressed: () => Get.offAllNamed(Routes.REGISTER),
-                                  child: Text("Register",style: TextStyle(
-                                      fontFamily: 'Poppins',fontWeight: FontWeight.bold,color: Colors.black)
-                                  ),
+                                      textStyle: TextStyle(fontSize: 14)),
+                                  onPressed: () =>
+                                      Get.offAllNamed(Routes.REGISTER),
+                                  child: Text("Register",
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black)),
                                 ),
                               ],
                             ),
                           ],
                         ),
-                      )
-                      ,
+                      ),
                     ],
-                  ))
-          ),
-        )
-
-    );
+                  ))),
+        ));
   }
 }
