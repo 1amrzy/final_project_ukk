@@ -7,10 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/component/customImageCarousel.dart';
-import 'package:peminjam_perpustakaan_kelas_b/app/component/customListBuku.dart';
-import 'package:peminjam_perpustakaan_kelas_b/app/component/customListBuku2.dart';
-import 'package:peminjam_perpustakaan_kelas_b/app/component/customSearchBar.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/component/customSlide.dart';
+import '../../../data/model/response_all_book.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/home_controller.dart';
 
@@ -74,6 +72,11 @@ class HomeView extends GetView<HomeController> {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: kontenBukuPopular(),
           ),
+        ),SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: kontenSemuaBuku(),
+          ),
         ),
       ],
     ));
@@ -89,10 +92,10 @@ class HomeView extends GetView<HomeController> {
           minFontSize: 15,
           maxLines: 1,
           maxFontSize: 25,
-          style: GoogleFonts.inriaSans(
-            fontWeight: FontWeight.w800,
+          style: GoogleFonts.poppins(
+            fontWeight: FontWeight.w500,
             color: Colors.black,
-            fontSize: 25.0,
+            fontSize: 16.0,
           ),
         ),
 
@@ -110,7 +113,7 @@ class HomeView extends GetView<HomeController> {
                   valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFEA1818)),
                 ),
               );
-            } else if (controller.popularBooks.value == null) {
+            } else if (controller.popularBooks.value!.isEmpty) {
               return const Center(
                 child: CircularProgressIndicator(
                   color: Colors.black,
@@ -130,28 +133,29 @@ class HomeView extends GetView<HomeController> {
                     itemCount: controller.popularBooks.value!.length,
                     itemBuilder: (context, index) {
                       var buku = controller.popularBooks.value![index];
-                      return InkWell(
-                        onTap: () {
-                          Get.toNamed(Routes.BOOK,
-                            parameters: {
-                              'id': (buku.bukuID ?? 0).toString(),
-                              'judul': (buku.judul!).toString()
-                            },
-                          );
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 10),
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: InkWell(
+                          onTap: () {
+                            Get.toNamed(Routes.DETAILBUKU,
+                              parameters: {
+                                'id': (buku.bukuID ?? 0).toString(),
+                                'judul': (buku.judul!).toString()
+                              },
+                            );
+                          },
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(
-                                width: 120, // Sesuaikan lebar gambar sesuai kebutuhan Anda
-                                height: 175, // Sesuaikan tinggi gambar sesuai kebutuhan Anda
-                                child: AspectRatio(
-                                  aspectRatio: 4 / 5,
-                                  child: Image.network(
-                                    buku.coverBuku.toString(),
-                                    fit: BoxFit.cover,
+                              Center(
+                                child: SizedBox(
+                                  height: 175,
+                                  child: AspectRatio(
+                                    aspectRatio: 5 / 6,
+                                    child: Image.network(
+                                      buku.coverBuku.toString(),
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -161,7 +165,7 @@ class HomeView extends GetView<HomeController> {
                               FittedBox(
                                 child: Text(
                                   buku.judul!,
-                                  style: GoogleFonts.inriaSans(
+                                  style: GoogleFonts.poppins(
                                       fontWeight: FontWeight.w600,
                                       color: Colors.black,
                                       fontSize: 14.0
@@ -174,7 +178,7 @@ class HomeView extends GetView<HomeController> {
                                 child: Text(
                                   "Penulis : ${buku.penulis!}",
                                   maxLines: 1,
-                                  style: GoogleFonts.inriaSans(
+                                  style: GoogleFonts.poppins(
                                       fontWeight: FontWeight.w600,
                                       color: Colors.black,
                                       fontSize: 10.0
@@ -211,9 +215,9 @@ class HomeView extends GetView<HomeController> {
           maxLines: 1,
           maxFontSize: 25,
           style: GoogleFonts.poppins(
-            fontWeight: FontWeight.w800,
+            fontWeight: FontWeight.w500,
             color: Colors.black,
-            fontSize: 25.0,
+            fontSize: 16.0,
           ),
         ),
 
@@ -253,7 +257,7 @@ class HomeView extends GetView<HomeController> {
                       var buku = controller.newBooks.value![index];
                       return InkWell(
                         onTap: () {
-                          Get.toNamed(Routes.BOOK,
+                          Get.toNamed(Routes.DETAILBUKU,
                             parameters: {
                               'id': (buku.bukuID ?? 0).toString(),
                               'judul': (buku.judulBuku!).toString()
@@ -282,7 +286,7 @@ class HomeView extends GetView<HomeController> {
                               FittedBox(
                                 child: Text(
                                   buku.judulBuku!,
-                                  style: GoogleFonts.inriaSans(
+                                  style: GoogleFonts.poppins(
                                       fontWeight: FontWeight.w600,
                                       color: Colors.black,
                                       fontSize: 14.0
@@ -295,7 +299,7 @@ class HomeView extends GetView<HomeController> {
                                 child: Text(
                                   "Penulis : ${buku.penerbitBuku!}",
                                   maxLines: 1,
-                                  style: GoogleFonts.inriaSans(
+                                  style: GoogleFonts.poppins(
                                       fontWeight: FontWeight.w600,
                                       color: Colors.black,
                                       fontSize: 10.0
@@ -317,6 +321,179 @@ class HomeView extends GetView<HomeController> {
           },
         ),
       ],
+    );
+  }
+
+  Widget kontenSemuaBuku(){
+    return  Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: Column(
+        children: [
+          controller.obx((state) {
+            if (controller.allBook! == null) {
+              return const Center(
+                child: CircularProgressIndicator(
+                  color: Colors.black,
+                  backgroundColor: Colors.grey,
+                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFEA1818)),
+                ),
+              );
+            } else if (controller.allBook.value!.isEmpty) {
+              return const Center(
+                child: CircularProgressIndicator(
+                  color: Colors.black,
+                  backgroundColor: Colors.grey,
+                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFEA1818)),
+                ),
+              );
+            }else{
+              return ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: controller.allBook.value!.length,
+                itemBuilder: (context, index){
+                  var kategori = controller.allBook.value![index].kategoriBuku;
+                  var bukuList = controller.allBook.value![index].buku;
+                  return Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 15),
+                        child: SizedBox(
+                          width: double.infinity,
+                          child: Text(
+                            kategori!,
+                            style: GoogleFonts.poppins(
+                                fontSize: 18.0,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500
+                            ),
+                            textAlign: TextAlign.start,
+                          ),
+                        ),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 15),
+                        child: SizedBox(
+                          height: 260, // Sesuaikan tinggi container sesuai kebutuhan Anda
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: bukuList!.length,
+                            itemBuilder: (context, index) {
+                              Buku buku = bukuList[index];
+                              return Padding(
+                                padding: const EdgeInsets.only(right: 10.0),
+                                child: InkWell(
+                                  onTap: (){
+                                    Get.toNamed(Routes.DETAILBUKU,
+                                      parameters: {
+                                        'id': (buku.bukuID ?? 0).toString(),
+                                        'judul': (buku.judul!).toString()
+                                      },
+                                    );
+                                  },
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        children: [
+                                          SizedBox(
+                                            height: 175,
+                                            child: AspectRatio(
+                                              aspectRatio: 4 / 5,
+                                              child: Image.network(
+                                                buku.coverBuku.toString(),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+
+                                          Positioned(
+                                            left: 0,
+                                            bottom: 0,
+                                            right: 0,
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  color: Colors.black.withOpacity(0.80)
+                                              ),
+                                              child: Padding(
+                                                padding: const EdgeInsets.symmetric(vertical: 5),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(height: 8),
+                                      FittedBox(
+                                        child: Text(
+                                          buku.judul!,
+                                          style: GoogleFonts.poppins(
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.black,
+                                              fontSize: 14.0
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+
+                                      const SizedBox(height: 4),
+
+                                      FittedBox(
+                                        child: Text(
+                                          "Penulis : ${buku.penulis!}",
+                                          style: GoogleFonts.poppins(
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.grey,
+                                              fontSize: 10.0
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+
+                                      const SizedBox(height: 4),
+
+                                      FittedBox(
+                                        child: Text(
+                                          "Penerbit : ${buku.penerbit!}",
+                                          style: GoogleFonts.poppins(
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.grey,
+                                              fontSize: 10.0
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+
+                                      const SizedBox(height: 5),
+
+                                      FittedBox(
+                                        child: Text(
+                                          "${buku.jumlahHalaman!} Halaman",
+                                          style: GoogleFonts.poppins(
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.grey,
+                                              fontSize: 10.0
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              );
+            }
+          }
+          )
+        ],
+      ),
     );
   }
 }

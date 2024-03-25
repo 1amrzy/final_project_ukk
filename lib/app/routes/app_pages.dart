@@ -10,6 +10,8 @@ import '../modules/book/bindings/book_binding.dart';
 import '../modules/book/views/book_view.dart';
 import '../modules/bookmark/bindings/bookmark_binding.dart';
 import '../modules/bookmark/views/bookmark_view.dart';
+import '../modules/detailbuku/bindings/detailbuku_binding.dart';
+import '../modules/detailbuku/views/detailbuku_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/layout/bindings/layout_binding.dart';
@@ -92,6 +94,11 @@ class AppPages {
       name: _Paths.LAYOUT,
       page: () => LayoutView(),
       binding: LayoutBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAILBUKU,
+      page: () => const DetailbukuView(),
+      binding: DetailbukuBinding(),
     ),
   ];
 }
