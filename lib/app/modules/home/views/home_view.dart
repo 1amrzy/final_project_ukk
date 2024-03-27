@@ -123,7 +123,7 @@ class HomeView extends GetView<HomeController> {
               );
             } else {
               return SizedBox(
-                height: 240,
+                height: 230,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: ListView.builder(
@@ -144,51 +144,64 @@ class HomeView extends GetView<HomeController> {
                               },
                             );
                           },
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Center(
-                                child: SizedBox(
-                                  height: 175,
-                                  child: AspectRatio(
-                                    aspectRatio: 5 / 6,
-                                    child: Image.network(
-                                      buku.coverBuku.toString(),
-                                      fit: BoxFit.cover,
+                          child: Container(
+                            width: 150,
+                            height: 230,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Center(
+                                  child: SizedBox(
+                                    width: 150,
+                                    height: 175,
+                                    child: AspectRatio(
+                                      aspectRatio: 5 / 6,
+                                      child: Image.network(
+                                        buku.coverBuku.toString(),
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
 
-                              const SizedBox(height: 10),
+                                const SizedBox(height: 10),
 
-                              FittedBox(
-                                child: Text(
-                                  buku.judul!,
-                                  style: GoogleFonts.poppins(
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black,
-                                      fontSize: 14.0
+                                Expanded(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      FittedBox(
+                                        child: Text(
+                                          buku.judul!,
+                                          style: GoogleFonts.poppins(
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.black,
+                                              fontSize: 14.0
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+
+                                      FittedBox(
+                                        child: Text(
+                                          "Penulis : ${buku.penulis!}",
+                                          maxLines: 1,
+                                          style: GoogleFonts.poppins(
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.black,
+                                              fontSize: 10.0
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+
+                                      const SizedBox(height: 5),
+                                    ],
                                   ),
-                                  textAlign: TextAlign.center,
                                 ),
-                              ),
-
-                              FittedBox(
-                                child: Text(
-                                  "Penulis : ${buku.penulis!}",
-                                  maxLines: 1,
-                                  style: GoogleFonts.poppins(
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black,
-                                      fontSize: 10.0
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-
-                              const SizedBox(height: 5),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       );
@@ -266,50 +279,61 @@ class HomeView extends GetView<HomeController> {
                         },
                         child: Padding(
                           padding: const EdgeInsets.only(right: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                width: 120, // Sesuaikan lebar gambar sesuai kebutuhan Anda
-                                height: 175, // Sesuaikan tinggi gambar sesuai kebutuhan Anda
-                                child: AspectRatio(
-                                  aspectRatio: 4 / 5,
-                                  child: Image.network(
-                                    buku.coverBuku.toString(),
-                                    fit: BoxFit.cover,
+                          child: Container(
+                            width: 150,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  width: 150, // Sesuaikan lebar gambar sesuai kebutuhan Anda
+                                  height: 175, // Sesuaikan tinggi gambar sesuai kebutuhan Anda
+                                  child: AspectRatio(
+                                    aspectRatio: 4 / 5,
+                                    child: Image.network(
+                                      buku.coverBuku.toString(),
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
-                              ),
 
-                              const SizedBox(height: 10),
+                                const SizedBox(height: 10),
 
-                              FittedBox(
-                                child: Text(
-                                  buku.judulBuku!,
-                                  style: GoogleFonts.poppins(
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black,
-                                      fontSize: 14.0
+                                Expanded(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      FittedBox(
+                                        child: Text(
+                                          buku.judulBuku!,
+                                          style: GoogleFonts.poppins(
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.black,
+                                              fontSize: 14.0
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+
+                                      FittedBox(
+                                        child: Text(
+                                          "Penulis : ${buku.penerbitBuku!}",
+                                          maxLines: 1,
+                                          style: GoogleFonts.poppins(
+                                              fontWeight: FontWeight.w600,
+                                              color: Colors.black,
+                                              fontSize: 10.0
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+
+                                      const SizedBox(height: 5),
+                                    ],
                                   ),
-                                  textAlign: TextAlign.center,
                                 ),
-                              ),
-
-                              FittedBox(
-                                child: Text(
-                                  "Penulis : ${buku.penerbitBuku!}",
-                                  maxLines: 1,
-                                  style: GoogleFonts.poppins(
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black,
-                                      fontSize: 10.0
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-
-                              const SizedBox(height: 5),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       );
@@ -392,92 +416,104 @@ class HomeView extends GetView<HomeController> {
                                       },
                                     );
                                   },
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Stack(
-                                        children: [
-                                          SizedBox(
-                                            height: 175,
-                                            child: AspectRatio(
-                                              aspectRatio: 4 / 5,
-                                              child: Image.network(
-                                                buku.coverBuku.toString(),
-                                                fit: BoxFit.cover,
+                                  child: Container(
+                                    width: 150,
+                                    height: 160,
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Stack(
+                                          children: [
+                                            SizedBox(
+                                              width: 150,
+                                              height: 175,
+                                              child: AspectRatio(
+                                                aspectRatio: 4 / 5,
+                                                child: Image.network(
+                                                  buku.coverBuku.toString(),
+                                                  fit: BoxFit.cover,
+                                                ),
                                               ),
                                             ),
-                                          ),
 
-                                          Positioned(
-                                            left: 0,
-                                            bottom: 0,
-                                            right: 0,
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                  color: Colors.black.withOpacity(0.80)
-                                              ),
-                                              child: Padding(
-                                                padding: const EdgeInsets.symmetric(vertical: 5),
+                                            Positioned(
+                                              left: 0,
+                                              bottom: 0,
+                                              right: 0,
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                    color: Colors.black.withOpacity(0.80)
+                                                ),
+                                                child: Padding(
+                                                  padding: const EdgeInsets.symmetric(vertical: 5),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                      const SizedBox(height: 8),
-                                      FittedBox(
-                                        child: Text(
-                                          buku.judul!,
-                                          style: GoogleFonts.poppins(
-                                              fontWeight: FontWeight.w600,
-                                              color: Colors.black,
-                                              fontSize: 14.0
-                                          ),
-                                          textAlign: TextAlign.center,
+                                          ],
                                         ),
-                                      ),
+                                        Column(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            const SizedBox(height: 8),
 
-                                      const SizedBox(height: 4),
+                                            FittedBox(
+                                              child: Text(
+                                                buku.judul!,
+                                                style: GoogleFonts.poppins(
+                                                    fontWeight: FontWeight.w600,
+                                                    color: Colors.black,
+                                                    fontSize: 14.0
+                                                ),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ),
 
-                                      FittedBox(
-                                        child: Text(
-                                          "Penulis : ${buku.penulis!}",
-                                          style: GoogleFonts.poppins(
-                                              fontWeight: FontWeight.w600,
-                                              color: Colors.grey,
-                                              fontSize: 10.0
-                                          ),
-                                          textAlign: TextAlign.center,
+                                            const SizedBox(height: 4),
+
+                                            FittedBox(
+                                              child: Text(
+                                                "Penulis : ${buku.penulis!}",
+                                                style: GoogleFonts.poppins(
+                                                    fontWeight: FontWeight.w600,
+                                                    color: Colors.grey,
+                                                    fontSize: 10.0
+                                                ),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ),
+
+                                            const SizedBox(height: 4),
+
+                                            FittedBox(
+                                              child: Text(
+                                                "Penerbit : ${buku.penerbit!}",
+                                                style: GoogleFonts.poppins(
+                                                    fontWeight: FontWeight.w600,
+                                                    color: Colors.grey,
+                                                    fontSize: 10.0
+                                                ),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ),
+
+                                            const SizedBox(height: 5),
+
+                                            FittedBox(
+                                              child: Text(
+                                                "${buku.jumlahHalaman!} Halaman",
+                                                style: GoogleFonts.poppins(
+                                                    fontWeight: FontWeight.w600,
+                                                    color: Colors.grey,
+                                                    fontSize: 10.0
+                                                ),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ),
-
-                                      const SizedBox(height: 4),
-
-                                      FittedBox(
-                                        child: Text(
-                                          "Penerbit : ${buku.penerbit!}",
-                                          style: GoogleFonts.poppins(
-                                              fontWeight: FontWeight.w600,
-                                              color: Colors.grey,
-                                              fontSize: 10.0
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-
-                                      const SizedBox(height: 5),
-
-                                      FittedBox(
-                                        child: Text(
-                                          "${buku.jumlahHalaman!} Halaman",
-                                          style: GoogleFonts.poppins(
-                                              fontWeight: FontWeight.w600,
-                                              color: Colors.grey,
-                                              fontSize: 10.0
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
                               );

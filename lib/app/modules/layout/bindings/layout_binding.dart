@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:peminjam_perpustakaan_kelas_b/app/modules/bookmark/controllers/bookmark_controller.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/modules/home/controllers/home_controller.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/modules/profile/controllers/profile_controller.dart';
 
@@ -17,6 +18,9 @@ class LayoutBinding extends Bindings {
     );
     Get.lazyPut<BookController>(
           () => BookController(),
+    );
+    Get.lazyPut<BookmarkController>(
+          () => BookmarkController(),
     );
     Get.lazyPut<ArticleController>(
           () => ArticleController(),
