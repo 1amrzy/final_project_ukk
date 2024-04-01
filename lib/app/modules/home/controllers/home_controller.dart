@@ -9,9 +9,9 @@ import '../../../data/provider/api_provider.dart';
 
 class HomeController extends GetxController with StateMixin {
   var tabIndex = 0;
-  var newBooks = Rxn<List<DataBookNew>>();
-  var popularBooks = Rxn<List<DataPopularBook>>();
-  var allBook = Rxn<List<DataAllBook>>();
+  var newBooks = RxList<DataBookNew>();
+  var popularBooks = RxList<DataPopularBook>();
+  var allBook = RxList<DataAllBook>();
 
   void changeTabIndex(int index){
     tabIndex = index;
@@ -52,11 +52,14 @@ class HomeController extends GetxController with StateMixin {
         final ResponseAllBook responseAllBook = ResponseAllBook.fromJson(responseBook.data);
 
         if (responseBukuNew.data!.isEmpty && responseBukuPopular.data!.isEmpty) {
+          newBooks.clear();
+          popularBooks.clear();
+          allBook.clear();
           change(null, status: RxStatus.empty());
         } else {
-          newBooks(responseBukuNew.data!);
-          popularBooks(responseBukuPopular.data!);
-          allBook(responseAllBook.data!);
+          newBooks.assignAll(responseBukuNew.data!);
+          popularBooks.assignAll(responseBukuPopular.data!);
+          allBook.assignAll(responseAllBook.data!);
           change(null, status: RxStatus.success());
         }
       } else {

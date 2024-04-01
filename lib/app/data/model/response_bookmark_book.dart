@@ -1,6 +1,6 @@
 /// Status : 200
 /// Message : "Berhasil Get Koleksi"
-/// data : [{"BukuID":2,"CoverBuku":"http://127.0.0.1:8000/storage/images/coverbook/Detektif Conan.png","Judul":"Detektif Conan","Penulis":"Syoung Youn Kwon","Penerbit":"Naver Webtoon","TahunTerbit":"2013","JumlahHalaman":"438","Rating":5,"Total_ulasan":1,"JumlahRating":5,"JumlahPeminjam":0,"Kategori":["Novel"]},{"BukuID":1,"CoverBuku":"http://127.0.0.1:8000/storage/images/coverbook/Gadis Kretek.png","Judul":"Gadis Kretek","Penulis":"Syoung Youn Kwon","Penerbit":"Naver Webtoon","TahunTerbit":"2013","JumlahHalaman":"438","Rating":5,"Total_ulasan":2,"JumlahRating":10,"JumlahPeminjam":0,"Kategori":["Novel"]},{"BukuID":3,"CoverBuku":"http://127.0.0.1:8000/storage/images/coverbook/Atomic Habits.png","Judul":"Atomic Habits","Penulis":"Syoung Youn Kwon","Penerbit":"Naver Webtoon","TahunTerbit":"2013","JumlahHalaman":"438","Rating":0,"Total_ulasan":0,"JumlahRating":0,"JumlahPeminjam":0,"Kategori":["ensiklopedia"]},{"BukuID":4,"CoverBuku":"http://127.0.0.1:8000/storage/images/coverbook/Monster.png","Judul":"Monster","Penulis":"Syoung Youn Kwon","Penerbit":"Naver Webtoon","TahunTerbit":"2013","JumlahHalaman":"438","Rating":0,"Total_ulasan":0,"JumlahRating":0,"JumlahPeminjam":0,"Kategori":["manga","ensiklopedia"]}]
+/// data : [{"BukuID":2,"Deskripsi":"Wind Breaker menceritakan kisah tentang Jay Jay, seorang siswa SMA yang terkenal nakal dan suka berkelahi. Suatu hari, dia bertemu dengan trio pengendara sepeda motor bernama Wind Breaker, yang terdiri dari Bum, Min-soo, dan Yo-han. Jay Jay terkesan dengan keahlian mereka dan memutuskan untuk bergabung dengan klub mereka.0","CoverBuku":"http://192.168.4.95:8000/storage/images/coverbook/Detektif Conan.png","Judul":"Detektif Conan","Penulis":"Syoung Youn Kwon","Penerbit":"Naver Webtoon","TahunTerbit":"2013","JumlahHalaman":"438","Rating":5,"Total_ulasan":1,"JumlahRating":5,"JumlahPeminjam":0,"Kategori":["Novel"]},{"BukuID":1,"Deskripsi":"Wind Breaker menceritakan kisah tentang Jay Jay, seorang siswa SMA yang terkenal nakal dan suka berkelahi. Suatu hari, dia bertemu dengan trio pengendara sepeda motor bernama Wind Breaker, yang terdiri dari Bum, Min-soo, dan Yo-han. Jay Jay terkesan dengan keahlian mereka dan memutuskan untuk bergabung dengan klub mereka.0","CoverBuku":"http://192.168.4.95:8000/storage/images/coverbook/Gadis Kretek.png","Judul":"Gadis Kretek","Penulis":"Syoung Youn Kwon","Penerbit":"Naver Webtoon","TahunTerbit":"2013","JumlahHalaman":"438","Rating":5,"Total_ulasan":2,"JumlahRating":10,"JumlahPeminjam":0,"Kategori":["Novel"]},{"BukuID":3,"Deskripsi":"Wind Breaker menceritakan kisah tentang Jay Jay, seorang siswa SMA yang terkenal nakal dan suka berkelahi. Suatu hari, dia bertemu dengan trio pengendara sepeda motor bernama Wind Breaker, yang terdiri dari Bum, Min-soo, dan Yo-han. Jay Jay terkesan dengan keahlian mereka dan memutuskan untuk bergabung dengan klub mereka.0","CoverBuku":"http://192.168.4.95:8000/storage/images/coverbook/Atomic Habits.png","Judul":"Atomic Habits","Penulis":"Syoung Youn Kwon","Penerbit":"Naver Webtoon","TahunTerbit":"2013","JumlahHalaman":"438","Rating":0,"Total_ulasan":0,"JumlahRating":0,"JumlahPeminjam":0,"Kategori":["ensiklopedia"]},{"BukuID":4,"Deskripsi":"Wind Breaker menceritakan kisah tentang Jay Jay, seorang siswa SMA yang terkenal nakal dan suka berkelahi. Suatu hari, dia bertemu dengan trio pengendara sepeda motor bernama Wind Breaker, yang terdiri dari Bum, Min-soo, dan Yo-han. Jay Jay terkesan dengan keahlian mereka dan memutuskan untuk bergabung dengan klub mereka.0","CoverBuku":"http://192.168.4.95:8000/storage/images/coverbook/Monster.png","Judul":"Monster","Penulis":"Syoung Youn Kwon","Penerbit":"Naver Webtoon","TahunTerbit":"2013","JumlahHalaman":"438","Rating":0,"Total_ulasan":0,"JumlahRating":0,"JumlahPeminjam":0,"Kategori":["manga","ensiklopedia"]}]
 
 class ResponseBookmarkBook {
   ResponseBookmarkBook({
@@ -35,7 +35,8 @@ class ResponseBookmarkBook {
 }
 
 /// BukuID : 2
-/// CoverBuku : "http://127.0.0.1:8000/storage/images/coverbook/Detektif Conan.png"
+/// Deskripsi : "Wind Breaker menceritakan kisah tentang Jay Jay, seorang siswa SMA yang terkenal nakal dan suka berkelahi. Suatu hari, dia bertemu dengan trio pengendara sepeda motor bernama Wind Breaker, yang terdiri dari Bum, Min-soo, dan Yo-han. Jay Jay terkesan dengan keahlian mereka dan memutuskan untuk bergabung dengan klub mereka.0"
+/// CoverBuku : "http://192.168.4.95:8000/storage/images/coverbook/Detektif Conan.png"
 /// Judul : "Detektif Conan"
 /// Penulis : "Syoung Youn Kwon"
 /// Penerbit : "Naver Webtoon"
@@ -50,6 +51,7 @@ class ResponseBookmarkBook {
 class DataBookmark {
   DataBookmark({
     this.bukuID,
+    this.deskripsi,
     this.coverBuku,
     this.judul,
     this.penulis,
@@ -64,26 +66,28 @@ class DataBookmark {
 
   DataBookmark.fromJson(dynamic json) {
     bukuID = json['BukuID'];
+    deskripsi = json['Deskripsi'];
     coverBuku = json['CoverBuku'];
     judul = json['Judul'];
     penulis = json['Penulis'];
     penerbit = json['Penerbit'];
     tahunTerbit = json['TahunTerbit'];
     jumlahHalaman = json['JumlahHalaman'];
-    rating = json['Rating'];
+    rating = json['Rating'].toDouble();
     totalUlasan = json['Total_ulasan'];
     jumlahRating = json['JumlahRating'];
     jumlahPeminjam = json['JumlahPeminjam'];
     kategori = json['Kategori'] != null ? json['Kategori'].cast<String>() : [];
   }
   int? bukuID;
+  String? deskripsi;
   String? coverBuku;
   String? judul;
   String? penulis;
   String? penerbit;
   String? tahunTerbit;
   String? jumlahHalaman;
-  int? rating;
+  double? rating;
   int? totalUlasan;
   int? jumlahRating;
   int? jumlahPeminjam;
@@ -92,6 +96,7 @@ class DataBookmark {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['BukuID'] = bukuID;
+    map['Deskripsi'] = deskripsi;
     map['CoverBuku'] = coverBuku;
     map['Judul'] = judul;
     map['Penulis'] = penulis;

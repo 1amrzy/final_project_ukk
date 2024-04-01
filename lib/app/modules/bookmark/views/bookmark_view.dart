@@ -17,35 +17,42 @@ class BookmarkView extends GetView<BookmarkController> {
 
     return Scaffold(
       body: Center(
-        child: Container(
-          width: width,
-            height: height,
-            child: Column(
-              children: [
-                kontenKoleksiBuku(),
-              ],
-            )
+        child: RefreshIndicator(
+          onRefresh: () async{
+            await controller.getData();
+          },
+          child: SizedBox(
+            width: width,
+              height: height,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: height * 0.020,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: kontenKoleksiBuku(),
+                    ),
+                    SizedBox(
+                      height: height * 0.020,
+                    ),
+                  ],
+                ),
+              )
+          ),
         ),
       )
     );
   }
 
   Widget kontenKoleksiBuku() {
-    const Color background = Color(0xFF0C1008);
+    const Color background = Colors.redAccent;
     const Color borderColor = Color(0xFF424242);
 
     return SizedBox(
       child: Obx((){
-        if (controller.dataBookmarkBook.isNull) {
-          return const Center(
-            child: CircularProgressIndicator(
-              color: Colors.black,
-              backgroundColor: Colors.grey,
-              valueColor:
-              AlwaysStoppedAnimation<Color>(Color(0xFF260534)),
-            ),
-          );
-        } else if (controller.dataBookmarkBook.value!.isEmpty) {
+        if (controller.dataBookmarkBook.isEmpty) {
           return Center(
             child: Container(
               height: 50,
@@ -53,14 +60,14 @@ class BookmarkView extends GetView<BookmarkController> {
                   color: background,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
-                    color: borderColor,
-                    width: 1.3,
+                    color: borderColor.withOpacity(0.2),
+                    width: 0.3,
                   )
               ),
               child: Center(
                 child: Text(
                   'Belum ada koleksi dataKoleksi yang tersimpan',
-                  style: GoogleFonts.inriaSans(
+                  style: GoogleFonts.poppins(
                     color: Colors.white,
                     fontSize: 16,
                   ),
@@ -76,9 +83,9 @@ class BookmarkView extends GetView<BookmarkController> {
                 child: Column(
                     children:
                     List.generate(
-                      controller.dataBookmarkBook.value!.length,
+                      controller.dataBookmarkBook.length,
                           (index) {
-                        var dataKoleksi = controller.dataBookmarkBook.value![index];
+                        var dataKoleksi = controller.dataBookmarkBook[index];
                         return Padding(
                           padding: const EdgeInsets.only(bottom: 10),
                           child: Container(
@@ -148,15 +155,17 @@ class BookmarkView extends GetView<BookmarkController> {
                                             color: const Color(0xFF260534),
                                             fontSize: 18.0,
                                           ),
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
                                           textAlign: TextAlign.start,
                                         ),
                                         Text(
-                                          dataKoleksi.penulis!,
+                                          dataKoleksi.deskripsi!,
                                           style: GoogleFonts.poppins(
                                             color: Colors.black,
                                             fontSize: 12.0,
                                           ),
-                                          maxLines: 3,
+                                          maxLines: 4,
                                           overflow: TextOverflow.ellipsis,
                                         ),
                                         Text(
@@ -178,7 +187,7 @@ class BookmarkView extends GetView<BookmarkController> {
                                   child: Center(
                                     child: InkWell(
                                       onTap: (){
-
+                                        controller.deleteKoleksiBook(dataKoleksi.bukuID.toString(), Get.context!);
                                       },
                                       child: const Icon(
                                         CupertinoIcons.trash_fill,

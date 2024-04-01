@@ -50,7 +50,7 @@ class DetailbukuView extends GetView<DetailbukuController> {
                 ),
               ),
 
-              floatingButton(),
+              floatingButton(context),
             ],
           ),
         )
@@ -482,7 +482,7 @@ class DetailbukuView extends GetView<DetailbukuController> {
     );
   }
 
-  Widget floatingButton(){
+  Widget floatingButton(BuildContext context){
     const Color colorActive = Color(0xFFFF0000);
 
     return GetBuilder<DetailbukuController>(
@@ -493,10 +493,16 @@ class DetailbukuView extends GetView<DetailbukuController> {
             right: 20,
             child: FloatingActionButton(
               onPressed: () {
+                if(dataBuku!.status == "Tersimpan"){
+                  return;
+                }else{
+                  controller.addKoleksiBuku(context);
+                }
               },
               backgroundColor: colorActive,
               child: FaIcon(
-                CupertinoIcons.book_solid,
+                dataBuku!.status == "Tersimpan" ?
+                CupertinoIcons.bookmark_fill : CupertinoIcons.book_solid,
                 color: Colors.white,
                 size: 28,
               ),

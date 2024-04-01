@@ -2,6 +2,8 @@ import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:peminjam_perpustakaan_kelas_b/app/data/provider/storage_provider.dart';
 import 'package:peminjam_perpustakaan_kelas_b/app/routes/app_pages.dart';
 
 import '../controllers/profile_controller.dart';
@@ -10,6 +12,10 @@ class ProfileView extends GetView<ProfileController> {
   const ProfileView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+
+    String usernameUser = StorageProvider.read(StorageKey.username);
+    String emailUser = StorageProvider.read(StorageKey.email);
+
     return Scaffold(
       body:  Center(
         child: SingleChildScrollView(
@@ -34,7 +40,7 @@ class ProfileView extends GetView<ProfileController> {
                 backgroundColor: Colors.redAccent,
                 borderWidth: 1,
                    initialsText: Text(
-                     "",
+                     "Addd",
                      style: TextStyle(fontSize: 40, color: Colors.white),
                    ),
                 borderColor: Colors.grey,
@@ -46,7 +52,28 @@ class ProfileView extends GetView<ProfileController> {
                 cacheImage: true,
                 showInitialTextAbovePicture: false,
               ),
-              SizedBox(
+
+              const SizedBox(
+                height: 15,
+              ),
+
+              Text(
+                usernameUser,
+                style: const TextStyle(
+                    fontFamily: 'Poppins',fontSize: 20,fontWeight: FontWeight.w700,color: Colors.black),
+              ),
+
+              const SizedBox(
+                  height: 5,
+              ),
+
+              Text(
+                emailUser,
+                style: const TextStyle(
+                    fontFamily: 'Poppins',fontSize: 14,fontWeight: FontWeight.w500,color: Colors.black),
+              ),
+
+              const SizedBox(
                   height: 50
               ),
               Column(

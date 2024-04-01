@@ -1,7 +1,5 @@
-import 'dart:ui';
 
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -33,24 +31,24 @@ class HomeView extends GetView<HomeController> {
           backgroundColor: Colors.white,
           pinned: true,
           bottom: PreferredSize(
-              preferredSize: Size.fromHeight(30),
+              preferredSize: const Size.fromHeight(30),
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                 child: TextFormField(
                   decoration: InputDecoration(
                       filled: true,
-                      prefixIcon: Icon(Icons.search,color: Color(0xFF6F6F6F)),
-                      fillColor: Color(0xFFB6B3B3).withOpacity(0.4),
+                      prefixIcon: const Icon(Icons.search,color: Color(0xFF6F6F6F)),
+                      fillColor: const Color(0xFFB6B3B3).withOpacity(0.4),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xFFB6B3B3), width: 2.0),
+                        borderSide: const BorderSide(color: Color(0xFFB6B3B3), width: 2.0),
                         borderRadius: BorderRadius.circular(30.30),
                       ),
                       enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFFB6B3B3), width: 2.0),
+                          borderSide: const BorderSide(color: Color(0xFFB6B3B3), width: 2.0),
                           borderRadius: BorderRadius.circular(30.30)),
                       hintText: 'What do you want?',
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                           fontFamily: 'Poppins', color: Color(0xFF6F6F6F))),
                 ),
               )),
@@ -105,15 +103,7 @@ class HomeView extends GetView<HomeController> {
 
         GetBuilder<HomeController>(
           builder: (controller) {
-            if (controller.popularBooks.isNull) {
-              return const Center(
-                child: CircularProgressIndicator(
-                  color: Colors.black,
-                  backgroundColor: Colors.grey,
-                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFEA1818)),
-                ),
-              );
-            } else if (controller.popularBooks.value!.isEmpty) {
+            if (controller.popularBooks.isEmpty) {
               return const Center(
                 child: CircularProgressIndicator(
                   color: Colors.black,
@@ -130,9 +120,9 @@ class HomeView extends GetView<HomeController> {
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    itemCount: controller.popularBooks.value!.length,
+                    itemCount: controller.popularBooks.length,
                     itemBuilder: (context, index) {
-                      var buku = controller.popularBooks.value![index];
+                      var buku = controller.popularBooks[index];
                       return Padding(
                         padding: const EdgeInsets.only(right: 10),
                         child: InkWell(
@@ -144,7 +134,7 @@ class HomeView extends GetView<HomeController> {
                               },
                             );
                           },
-                          child: Container(
+                          child: SizedBox(
                             width: 150,
                             height: 230,
                             child: Column(
@@ -240,15 +230,7 @@ class HomeView extends GetView<HomeController> {
 
         GetBuilder<HomeController>(
           builder: (controller) {
-            if (controller.newBooks.isNull) {
-              return const Center(
-                child: CircularProgressIndicator(
-                  color: Colors.black,
-                  backgroundColor: Colors.grey,
-                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFEA1818)),
-                ),
-              );
-            } else if (controller.newBooks.value == null) {
+            if (controller.newBooks.isEmpty) {
               return const Center(
                 child: CircularProgressIndicator(
                   color: Colors.black,
@@ -265,9 +247,9 @@ class HomeView extends GetView<HomeController> {
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    itemCount: controller.newBooks.value!.length,
+                    itemCount: controller.newBooks.length,
                     itemBuilder: (context, index) {
-                      var buku = controller.newBooks.value![index];
+                      var buku = controller.newBooks[index];
                       return InkWell(
                         onTap: () {
                           Get.toNamed(Routes.DETAILBUKU,
@@ -279,7 +261,7 @@ class HomeView extends GetView<HomeController> {
                         },
                         child: Padding(
                           padding: const EdgeInsets.only(right: 10),
-                          child: Container(
+                          child: SizedBox(
                             width: 150,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -354,15 +336,7 @@ class HomeView extends GetView<HomeController> {
       child: Column(
         children: [
           controller.obx((state) {
-            if (controller.allBook! == null) {
-              return const Center(
-                child: CircularProgressIndicator(
-                  color: Colors.black,
-                  backgroundColor: Colors.grey,
-                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFEA1818)),
-                ),
-              );
-            } else if (controller.allBook.value!.isEmpty) {
+            if (controller.allBook.isEmpty) {
               return const Center(
                 child: CircularProgressIndicator(
                   color: Colors.black,
@@ -374,10 +348,10 @@ class HomeView extends GetView<HomeController> {
               return ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: controller.allBook.value!.length,
+                itemCount: controller.allBook.length,
                 itemBuilder: (context, index){
-                  var kategori = controller.allBook.value![index].kategoriBuku;
-                  var bukuList = controller.allBook.value![index].buku;
+                  var kategori = controller.allBook[index].kategoriBuku;
+                  var bukuList = controller.allBook[index].buku;
                   return Column(
                     children: [
                       Padding(
@@ -416,7 +390,7 @@ class HomeView extends GetView<HomeController> {
                                       },
                                     );
                                   },
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 150,
                                     height: 160,
                                     child: Column(
@@ -444,8 +418,8 @@ class HomeView extends GetView<HomeController> {
                                                 decoration: BoxDecoration(
                                                     color: Colors.black.withOpacity(0.80)
                                                 ),
-                                                child: Padding(
-                                                  padding: const EdgeInsets.symmetric(vertical: 5),
+                                                child: const Padding(
+                                                  padding: EdgeInsets.symmetric(vertical: 5),
                                                 ),
                                               ),
                                             ),
